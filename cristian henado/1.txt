@@ -1,0 +1,26 @@
+public class Procesos {
+ 
+    double valorPagar;
+    
+    public Procesos(){
+        System.out.println("hola");
+        ingresarDatos();
+    }
+    
+    public void calcularDescuentos(){
+   
+        valorPagar=0;
+    }
+
+    public void ingresarDatos() {
+        String nombre = JOptionPane.showInputDialog("ingrese el nombre");
+        String producto = JOptionPane.showInputDialog("ingrese producto");
+        valorPagar=Double.parseDouble(JOptionPane.showInputDialog("ingrese el valor del producto"));
+        
+        validarDatos();
+    }
+    
+    public void validarDatos(){
+        System.out.println("el valor a pagar es "+ valorPagar);
+    }
+}

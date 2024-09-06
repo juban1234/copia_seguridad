@@ -2,15 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.modulos;
+package com.mycompany.programa.objetos;
 
-
-
-
-public class Principal {
+/*
+ * 
+ * 
+ */
+public class ProgramaObjetos {
 
     public static void main(String[] args) {
-        procesos misProcesos=new procesos();
-        misProcesos.iniciar();
+        
+        Procesos procesos=new Procesos();
+        
     }
 }

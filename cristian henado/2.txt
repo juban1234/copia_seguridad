@@ -1,0 +1,32 @@
+public class Procesos {
+ 
+    
+    
+    public Procesos(){
+        System.out.println("hola");
+        ingresarDatos();
+    }
+    
+    public void calcularDescuentos(){
+    
+    }
+
+    public void ingresarDatos() {
+        String nombre = JOptionPane.showInputDialog("ingrese nombre");
+        String producto = JOptionPane.showInputDialog("ingrese producto");
+        double valorApagar=validarDatos();
+        
+        
+    }
+    
+    public double validarDatos(){
+        double valor =Double.parseDouble(JOptionPane.showInputDialog("ingrese el valor del producto"));
+        if (valor < 0) {
+            System.out.println("el valor es negativo, repitalo");
+            validarDatos();
+        } else{
+            System.out.println("el dato es correcto");
+        }
+        return valor;
+    }
+}
