@@ -71,6 +71,7 @@ public class Formulas {
         System.out.println("Puede recuperar el estudiante " + nombre + " la materia " + materia);
         System.out.println("---------------------------------");
     } else {
+
         System.out.println("Perdió definitivamente la materia"+ nombre);
         System.out.println("---------------------------------");
     }
