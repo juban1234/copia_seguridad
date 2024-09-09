@@ -1,0 +1,64 @@
+
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+
+
+    public class Procesos {
+
+    private List<Double> notasFinales;
+    private List<String> nombres;
+
+    public Procesos() {
+        nombres = new ArrayList<>();
+        notasFinales = new ArrayList<>();
+        int numEstudiantes = Integer.parseInt(JOptionPane.showInputDialog("¿Cuántos estudiantes desea procesar?"));
+        int totalNotasIngresadas = 0;
+
+        for (int i = 0; i < numEstudiantes; i++) {
+            String nombre = nombres();
+            double promedio = calcularPromedioNotas();
+            totalNotasIngresadas += 3; // Cada estudiante ingresa 3 notas
+            nombres.add(nombre);
+            notasFinales.add(promedio);
+        }
+
+        mostrarResultados(numEstudiantes, totalNotasIngresadas);
+    }
+
+    
+
+    public double validarNota(){
+        double valor ;
+            
+            do {            
+            valor = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor de la nota (0 - 5)"));
+            if (valor < 0 || valor > 5) { 
+                System.out.println("El valor es inválido, repítalo");
+            }
+        } while (valor < 0 || valor > 5);
+        return valor;
+    }
+
+    private double calcularPromedioNotas() {
+        double nota1 = validarNota();
+        double nota2 = validarNota();
+        double nota3 = validarNota();
+        return (nota1 + nota2 + nota3) / 3;
+    }
+
+    private String nombres(){
+        String nombre = JOptionPane.showInputDialog("ingrese su numbre");
+        return nombre;
+        
+    }
+    
+ private void mostrarResultados(int numEstudiantes, int totalNotasIngresadas) {
+        System.out.println("numero de estudiantes "+numEstudiantes);
+        System.out.println("");
+        System.out.println(totalNotasIngresadas +"notas ingresados ");
+        System.out.println("nombre"+nombres);
+        System.out.println(notasFinales+"estudiantes ");
+  }
+
+}
