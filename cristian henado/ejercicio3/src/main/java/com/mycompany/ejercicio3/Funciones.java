@@ -9,7 +9,14 @@ import javax.swing.JOptionPane;
 
 public class Funciones {
 
-    private int presioSemilla = 0;
+    private final int semillaChonto = 15;
+    private final int semillaEnsalada = 20;
+    private final int semillaRepollo = 10;
+    private final int semillaCriolla = 8;
+    private final int semillaPastusa = 9;
+    private final int semillaSalenuna= 11;
+    private final int semillalarga = 15;
+    private final int semillahuevo = 13;
     private int cantidadSemilla; 
     private int precioTotal;
             
@@ -27,26 +34,18 @@ public class Funciones {
         menuPrincipal += "5. SALIR\n\n";
         menuPrincipal += "Ingrese una opcion\n";
 
-        int opc = 0;
+        int opc;
         do {
 
             opc = Integer.parseInt(JOptionPane.showInputDialog(menuPrincipal));
 
             switch (opc) {
-                case 1:Tomate();
-                    break;
-                case 2:Repollo();
-                    break;
-                case 3:Papa(); 
-                    break;
-                case 4:Cebolla();
-                    break;
-                case 5:
-                    JOptionPane.showMessageDialog(null, "Gracias por usar el sistema");
-                    break;
-                default:
-                    System.out.println("No existe la opcion");
-                    break;
+                case 1 -> Tomate();
+                case 2 -> Repollo();
+                case 3 -> Papa();
+                case 4 -> Cebolla();
+                case 5 -> JOptionPane.showMessageDialog(null, "Gracias por usar el sistema");
+                default -> System.out.println("No existe la opcion");
             }
         } while (opc != 5);
     }
@@ -57,32 +56,78 @@ public class Funciones {
         menuTomate+="1. chonto\n";
         menuTomate+="2. ensalada\n";
         
-        int tipo = Integer.parseInt(JOptionPane.showInputDialog(menuTomate));
+        int tipo;
+        
+        do {         
+            tipo= Integer.parseInt(JOptionPane.showInputDialog(menuTomate));
             switch (tipo) {
-            case 1:
-                presioSemilla = 15;
-                precioTotal=presioSemilla*cantidad();
+            case 1 -> {
+                precioTotal=semillaChonto*cantidad();
                 System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
-                
-                break;
-            case 2:
-                
-                break;
-            default:
-                throw new AssertionError();
-        }
+            }
+            case 2 -> {
+                precioTotal=semillaEnsalada*cantidad();
+                System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
+            }
+            default -> System.out.println("No existe la opcion");
+           }
+        } while (tipo !=2);
     }
     
     private void Repollo() {
-        System.out.println("holka");
+        precioTotal=semillaRepollo*cantidad();
+        System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
     }
     
     private void Papa() {
-        System.out.println("holka");
+        String menuPapa="que tipo de semilla de papa quieres\n";
+        menuPapa+="1. semilla de papa criolla\n";
+        menuPapa+="2. semilla de papa past usa\n";
+        menuPapa+="3. semilla de papa Salenuna ";
+        
+        int tipoPapa;
+        
+        do {          
+            tipoPapa=Integer.parseInt(JOptionPane.showInputDialog(menuPapa));
+            switch (tipoPapa) {
+            case 1 -> {
+                precioTotal=semillaCriolla*cantidad();
+                System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
+            }
+            case 2 -> {
+                precioTotal=semillaPastusa*cantidad();
+                System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
+            }
+            case 3 -> {
+                precioTotal=semillaSalenuna*cantidad();
+                System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
+            }
+            default -> System.out.println("No existe la opcion");
+          }
+        } while (tipoPapa !=3);
     }
     
     private void Cebolla() {
-        System.out.println("holka");
+        String menuCebolla="que tipo de semilla de papa quieres\n";
+        menuCebolla+="1. semilla de cebolla larga\n";
+        menuCebolla+="2. semilla de cebolla de huevo\n";
+        
+        int tipoCebolla;
+        do {            
+            tipoCebolla = Integer.parseInt(JOptionPane.showInputDialog(menuCebolla));
+            switch (tipoCebolla) {
+            case 1 -> {
+                precioTotal=semillalarga*cantidad();
+                System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
+            }
+            case 2 -> {
+                precioTotal=semillahuevo*cantidad();
+                System.out.println("el precio total a pagar por "+cantidadSemilla+" semillas es "+precioTotal);
+            }
+            default -> System.out.println("No existe la opcion");
+          }
+        } while (tipoCebolla !=2);
+
     }
     
     private int cantidad(){
