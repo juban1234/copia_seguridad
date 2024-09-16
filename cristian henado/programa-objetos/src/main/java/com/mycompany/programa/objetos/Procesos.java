@@ -40,7 +40,7 @@ public class Procesos {
         imprimirResultado(desc,valorPagofinal);
     }
 
-    public void ingresarDatos() {
+    private void ingresarDatos() {
          nombre = JOptionPane.showInputDialog("ingrese nombre");
          producto = JOptionPane.showInputDialog("ingrese producto");
         double valorApagar=validarDatos();
@@ -61,7 +61,8 @@ public class Procesos {
     }
 
     private void imprimirResultado(double desc, double valorPagofinal) {
-        String msj="------------------------------------------\n";
+        String msj="";
+        msj+="------------------------------------------\n";
         msj ="hola cliente "+nombre+"su producto es: "+producto+"\n";
         msj+="el valor descontado es: "+desc+"\n";
        msj+="el valor a pagar es: "+valorPagofinal+"\n";
